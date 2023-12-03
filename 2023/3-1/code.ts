@@ -19,9 +19,6 @@ async function main() {
 
       if (!last) {
         if (isCharANumber(b)) {
-          if (i === row.length - 1) {
-            //return [...a, [i, i]];
-          }
           return [...a, [i]];
         }
       } else {
