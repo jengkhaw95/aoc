@@ -1,4 +1,4 @@
-import {readFileSync} from "fs";
+import { readFileSync } from "fs";
 import path from "path";
 
 async function main() {
@@ -25,7 +25,7 @@ async function main() {
 
               return a;
             },
-            {red: 0, green: 0, blue: 0} as Record<string, number>
+            { red: 0, green: 0, blue: 0 } as Record<string, number>
           )
       ).reduce((a, b) => a * b, 1)
     )
@@ -33,4 +33,12 @@ async function main() {
 
   return result;
 }
-main().then(console.log);
+
+const startTime = performance.now();
+main()
+  .then(console.log)
+  .then(() => {
+    const endTime = performance.now();
+    const executionTime = endTime - startTime;
+    console.log(`Execution time: ${executionTime.toFixed(2)} ms`);
+  });

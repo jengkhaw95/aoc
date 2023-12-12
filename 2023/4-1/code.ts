@@ -29,4 +29,12 @@ async function main() {
     return a + Math.pow(2, match - 1);
   }, 0);
 }
-main().then(console.log);
+
+const startTime = performance.now();
+main()
+  .then(console.log)
+  .then(() => {
+    const endTime = performance.now();
+    const executionTime = endTime - startTime;
+    console.log(`Execution time: ${executionTime.toFixed(2)} ms`);
+  });

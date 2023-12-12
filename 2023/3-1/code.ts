@@ -1,4 +1,4 @@
-import {readFileSync} from "fs";
+import { readFileSync } from "fs";
 import path from "path";
 
 function isCharANumber(char: string) {
@@ -81,4 +81,12 @@ async function main() {
 
   return sum;
 }
-main().then(console.log);
+
+const startTime = performance.now();
+main()
+  .then(console.log)
+  .then(() => {
+    const endTime = performance.now();
+    const executionTime = endTime - startTime;
+    console.log(`Execution time: ${executionTime.toFixed(2)} ms`);
+  });
